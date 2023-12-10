@@ -1,0 +1,10 @@
+/* Light Mode: Default */
+:root {
+    // #region : Black/White
+    --color-black: #2f2f2e; // Title - Focus
+    --color-white: #ffffff;
+    // #endregion
+}
+
+/* Dark Mode */
+[data-theme='dark'] {}

@@ -1,0 +1,70 @@
+/* Light Mode: Default */
+:root {
+  --color-black: #2f2f2e;
+  --color-white: #ffffff;
+}
+
+/* Dark Mode */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+body {
+  background-color: var(--color-white);
+  font-family: "Montserrat", sans-serif;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+  font-weight: 300;
+  color: var(--color-black);
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#banner {
+  height: 90px;
+  background-color: red;
+}
+
+/*# sourceMappingURL=style.css.map */
