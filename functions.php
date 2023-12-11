@@ -19,24 +19,28 @@
     add_action("wp_enqueue_scripts", "load_assets");
 
     // Register Menu
-    function leo_register_my_menu() {
-        register_nav_menu('top-menu',__( 'Menu Top' ));
-        register_nav_menu('bottom-menu',__( 'Menu Bottom' ));
-    }
-    add_action( 'init', 'leo_register_my_menu' );
-
-    // Register widget
-    if (function_exists('register_sidebar')){
-        register_sidebar(
+    function leo_setup_theme(){
+        add_theme_support('post-thumbnails');
+        // Register sidebar
+        if (function_exists('register_sidebar')){
+            register_sidebar(array(
+            'name'=> __( 'Sidebar', 'leo' ),
+            'id' => 'sidebar',
+            'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
+            'before_widget' => '<div class="widget">',
+            'after_widget'  => "</div>",
+            'before_title'  => '<h3 class="title">',
+            'after_title'   => "</h3>",
+            ));
+        }
+        // Register menu
+        register_nav_menus(
             array(
-                'name'=> 'Cột bên',
-                'description'   => __( 'Widgets in this area will be shown on all posts and pages.', 'textdomain' ),
-                'before_widget' => '<div id="%1$s menu-cot-ben" class="widget %2$s">',
-                'after_widget'  => '</div>',
-                'id' => 'sidebar',
-            ),
+            'main_nav' => __( 'Menu chính', 'leo' ),
+            )
         );
     }
+    add_action('init','leo_setup_theme');
 
     // Create theme options
     if( function_exists('acf_add_options_page') ) {
