@@ -1,0 +1,45 @@
+@keyframes spinnerX {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-50px, 0);
+    }
+
+    75% {
+        transform: translate(50px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes spinnerY {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(0px, -50px);
+    }
+
+    75% {
+        transform: translate(0px, 50px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

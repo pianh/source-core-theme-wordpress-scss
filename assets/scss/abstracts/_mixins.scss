@@ -1,0 +1,87 @@
+@mixin flexCenter($horizontal: center, $vertical: center) {
+    display: flex;
+    align-items: $vertical;
+    justify-content: $horizontal;
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin rounded($tl, $tr: $tl, $br: $tl, $bl: $tl) {
+    border-radius: $tl $tr $br $bl;
+}
+
+@mixin grid ($column, $spacing) {
+    --column: #{$column};
+    --spacing: #{$spacing};
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: wrap;
+    row-gap: var(--spacing);
+    margin-left: calc(-1 * var(--spacing));
+
+    >* {
+        width: calc(100% / var(--column) - var(--spacing));
+        margin-left: var(--spacing);
+    }
+}
+
+@mixin position($pos) {
+    @if ($pos ==top-left) {
+        top: 0;
+        left: 0;
+    }
+
+    @if ($pos ==top-right) {
+        top: 0;
+        right: 0;
+    }
+
+    @if ($pos ==bottom-left) {
+        bottom: 0;
+        left: 0;
+    }
+
+    @if ($pos ==bottom-right) {
+        bottom: 0;
+        right: 0;
+    }
+
+    @if ($pos ==center) {
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+}
+
+@mixin avatar($w, $h, $circle: false) {
+    width: $w;
+    height: $h;
+
+    @if $circle ==true {
+        border-radius: 50%;
+    }
+}
+
+@mixin media($device) {
+    @if $device ==pc {
+        @media (min-width: 991.98px) {
+            @content;
+        }
+    }
+
+    @if $device ==tab {
+        @media ((min-width: 768px) and (max-width: 991.97px)) {
+            @content;
+        }
+    }
+
+    @if $device ==mob {
+        @media (max-width: 575.98px) {
+            @content;
+        }
+    }
+}
